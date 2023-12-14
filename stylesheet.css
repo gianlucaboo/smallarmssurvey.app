@@ -1,0 +1,335 @@
+/* get Gilroy typeface from file */
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/font/Gilroy/Gilroy-Light.otf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/font/Gilroy/Gilroy-ExtraBold.otf") format("truetype");
+  font-weight: bold;
+}
+
+
+/* ----- Global variables ----- */
+:root {
+
+  /* Layout */
+  --headerHeight: 36px;
+  --titleHeight: 180px;
+  --pageMarginSide: 50px;
+  --pagePaddingBottom: 75vh;
+  --textMarginTop: 20px;
+
+  /* from SAS website */
+  --sasBlue: #1f384e;
+  --sasRed: #881010;
+  --sasBlueLt: #567a9a;
+  --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+
+}
+
+
+/* ----- DEFAULT OVERRIDES ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+  text-decoration: none;
+}
+/* override default button style */
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+/* override default pointers */
+.link, .button {
+  color: black;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+
+/* ----- SCROLL SNAP -----  */
+.snapContainer {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scrollbar-width: none;
+}
+.snapElement {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+
+/* ----- FLEX -----  */
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.flexElement {
+  height: 100%;
+  margin: 0;
+}
+.flexElement.fixed {
+  flex: 1 1 auto;
+}
+.flexElement.snapContainer, .flexElement.cardContainer {
+  flex:0 0 400px;
+}
+
+
+/* ----- MAIN HTML ELEMENTS ----- */
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--sasRed);
+}
+header {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--headerHeight);
+
+  padding-left: var(--pageMarginSide);
+  padding-right: var(--pageMarginSide);
+
+  background: white;
+}
+#bodyContent {
+  margin: 0;
+}
+
+
+/* ----- CONTENT ELEMENTS ----- */
+.page {
+  background-color: #cccccc; 
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  padding-bottom: var(--pagePaddingBottom);
+}
+.title {
+  position: sticky;
+  top: 0;
+  height: var(--titleHeight);
+  z-index: 1;
+  padding: 
+    calc(var(--headerHeight) + 40px)
+    10vw
+    0
+    var(--pageMarginSide);
+
+  font-family: Gilroy;
+  font-weight: bold;
+  font-size: 2.6em;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+  line-height: 130%;
+  color: var(--sasBlue);
+  background-color: white;
+  border-bottom: solid 2px var(--sasBlueLt);
+
+}
+#homePage .title {
+  font-size: 2.2em;
+  padding-top: calc(var(--headerHeight) + 20px);
+}
+.pageContent {
+  height: calc(100vh - var(--titleHeight));
+  width: 90vw;
+}
+.textContainer {
+  height: 100%;
+  margin: 0 var(--pageMarginSide);
+  padding-top: 40px;
+}
+.flexElement.fixed .textContainer {
+  margin-right: calc(var(--pageMarginSide) - 6px);
+}
+p {
+  font-family: var(--font-family-sans-serif);
+  font-size: 1.5em;
+  line-height: 140%;
+  font-weight: normal;
+  color: var(--sasBlue);
+}
+p strong {
+  color: var(--sasRed);
+  text-transform: uppercase;
+  font-size: 90%;
+}
+.textContainer p {
+  margin-bottom: 20px;
+}
+.highlight {
+  display: inline;
+  color: inherit;
+  background: white;
+  padding: .65% 1.2%;
+  -moz-box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.cardContainer {
+  height: 100%;
+  padding-top: 40px;
+}
+.card {
+  border: solid 3px var(--sasBlue);
+  background: white;
+  padding: 20px;
+}
+.card p {
+  font-size: 1.3em;
+}
+.card p strong{
+  color: inherit;
+}
+
+
+/* ----- NAVIGATION MENU ----- */
+header nav {
+  float: right;
+  width: 10%;
+  margin-top: -5px;
+}
+#navMenuToggle {
+  height: 100%;
+  float: right;
+  font-size: 40px;
+  color: var(--sasBlue);
+}
+#navMenu {
+  max-height: 0;
+  width: 75vw;
+  max-width: 200px;
+  overflow: auto;
+  scrollbar-width: none;
+  float: right;
+  padding: 0;
+}
+.navButton {
+  list-style-type: none;
+  padding: 15px 20px 15px 20px;
+  background-color: white;
+  border: solid 2px var(--sasBlue);
+  user-select: none;
+}
+.navButton p {
+  font-family: gilroy;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--sasBlue);
+}
+.navButton ~ .navButton {
+  border-top: none;
+}
+
+
+/* ----- PAGE BACKGROUND IMAGES -----  */
+#homePage .page {
+  background-image: url("assets/img/home.jpg"); 
+}
+#whatPage .page {
+  background-image: url("assets/img/what.jpg"); 
+}
+#howPage .page {
+  background-image: url("assets/img/how.jpg"); 
+}
+#systemPage .page {
+  background-image: url("assets/img/system.jpg"); 
+}
+#threatPage .page {
+  background-image: url("assets/img/threat.jpg"); 
+}
+#counterPage .page {
+  background-image: url("assets/img/counter.jpg"); 
+}
+#togetherPage .page {
+  background-image: url("assets/img/together.jpg"); 
+}
+
+
+
+
+/* ------------------------------  */
+/* all below should be @media for wider screen */
+/* header {
+  border-bottom: #F0F3F6 solid 2px;
+}
+header .headTitle {
+  float: right;
+  margin-top: 8px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-align: right;
+  text-transform: uppercase;
+  color: var(--sasBlueLt);
+}
+header nav {
+  float: right;
+  width: 100%;
+  padding: 0;
+}
+#navMenuToggle {
+  display: none;
+}
+#navMenu {
+  max-height: none;
+}
+#timeline {
+  height: 100%;
+  border-right: solid 3px var(--sasBlueLt);
+}
+.navButton {
+  position: relative;
+  margin: 14px 0;  
+  width: 85px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: white;
+  border: solid 3px var(--sasBlueLt);
+  color: var(--sasBlueLt);
+}
+.navButton:hover {
+  border-color: var(--sasBlue);
+  color: var(--sasBlue);
+}
+.navButton p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 110%;
+  text-transform: uppercase;
+  font-size: .75em;
+  color: inherit;
+} */
+
+
+
+
+
+
+/* ----- RESPONSIVE LAYOUT -----  */
+@media screen and (min-width: 600px) {
+}
+@media screen and (min-width: 1000px) {
+}

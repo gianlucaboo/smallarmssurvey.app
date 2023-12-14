@@ -1,9 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta http-equiv="refresh" content="0; url='https://www.smallarmssurvey.org'" />
-  </head>
-  <body>
-    <p>Please follow <a href="https://www.smallarmssurvey.org">this link</a>.</p>
-  </body>
+<head>
+  <title>C-IED</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- libraries: -->
+  <!-- p5.js and dom -->
+  <script src="./lib/p5.min.js"></script>
+  <script src="./lib/p5.dom.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+  <!-- handlebars source code -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script> -->
+
+  <!-- scripts: -->
+  <!-- custom helper functions -->
+  <script src="./script/helperFunctions.js"></script>
+  <!-- website initialise and handlers -->
+  <script src="./script/websiteHandler.js" defer></script>
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="./stylesheet.css">
+
+</head>
+
+
+<body>
+
+  <!-- header -->
+  <header>
+
+    <!-- title: appears on home page only -->
+    <!-- <div class="headTitle">
+      A Systemic Approach to Counter Improvised Explosive Devices (C-IED)
+    </div> -->
+
+    <!-- website navigation -->
+    <nav>
+      <button id="navMenuToggle" alt="toggle display navigation">&#x2630;</button>
+      <!-- the navigation menu is a template loaded to #navMenu from navMenu.html -->
+      <ul class="pageElement" id="navMenu" alt="navigation menu"></ul>
+    </nav>
+
+  </header>
+
+  <!-- main content: website pages are loaded into these elements -->
+  <div  class="snapContainer" id="bodyContent">
+    <div class="pageElement snapElement" id="homePage"></div>
+    <div class="pageElement snapElement" id="whatPage"></div>
+    <div class="pageElement snapElement" id="howPage"></div>
+    <div class="pageElement snapElement" id="systemPage"></div>
+    <div class="pageElement snapElement" id="threatPage"></div>
+    <div class="pageElement snapElement" id="counterPage"></div>
+    <div class="pageElement snapElement" id="togetherPage"></div>
+  </div>
+
+
+</body>
+
 </html>
