@@ -141,8 +141,6 @@ header {
   line-height: 130%;
   color: var(--sasBlue);
   background-color: white;
-  border-bottom: solid 2px var(--sasBlueLt);
-
 }
 #homePage .title {
   font-size: 2.2em;
@@ -179,7 +177,7 @@ p strong {
   display: inline;
   color: inherit;
   background: white;
-  padding: .65% 1.2%;
+  padding: .7% 2%;
   -moz-box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -195,9 +193,16 @@ p strong {
 }
 .card p {
   font-size: 1.3em;
+  line-height: 130%;
 }
 .card p strong{
   color: inherit;
+}
+img.icon {
+  margin: 15px 0 20px;
+}
+img.diagram {
+  margin: 20px auto 5px;
 }
 
 
